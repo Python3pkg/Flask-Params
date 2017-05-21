@@ -22,7 +22,7 @@ test_get1_config = {
 @app.route('/test_get1', methods=['GET'])
 @request_params(param_config=test_get1_config)
 def get_view1(params):
-    print params
+    print(params)
     res = {
         'results':
         {
@@ -30,19 +30,19 @@ def get_view1(params):
             "header_params": "header_params"
         }
     }
-    print jsonify(res)
+    print(jsonify(res))
     return jsonify(res)
     # return "Hello"
 
 
 @app.route('/test_post1', methods=['POST'])
 def post_view1():
-    print request.form
+    print(request.form)
     return jsonify({'results': request.form})
 
 
 if __name__ == '__main__':
-    print 1
+    print(1)
     app.config['DEBUG'] = True
     app.run()
 

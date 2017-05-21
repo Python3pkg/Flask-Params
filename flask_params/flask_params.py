@@ -2,7 +2,7 @@ import json
 from functools import wraps
 from flask import request
 from jsonschema import validate, ValidationError, FormatChecker
-from exception import ErrorMessage
+from .exception import ErrorMessage
 
 
 def process(param_config=None, header_config=None, check_all_fields=True, *args, **kwargs):
@@ -17,7 +17,7 @@ def process(param_config=None, header_config=None, check_all_fields=True, *args,
             required_header = {}
             all_present = True
             if config:
-                for header_name, header_type in config.iteritems():
+                for header_name, header_type in config.items():
                     required_header[header_name] = headers(header_name)
                     if required_header[header_name]:
                         required_header[header_name] = header_type(
